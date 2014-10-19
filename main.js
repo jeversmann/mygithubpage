@@ -28,20 +28,20 @@ var WIDTH=500;
 var HEIGHT=50;
 var rafID = null;
 
-var PICS = document.selectElementByTagName("DIV");
+var PICS = document.getElementsByTagName("DIV");
 
 window.onload = function() {
-	
+
     // monkeypatch Web Audio
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
-	
+
     // grab an audio context
     audioContext = new AudioContext();
 
     // Attempt to get audio input
     try {
         // monkeypatch getUserMedia
-        navigator.getUserMedia = 
+        navigator.getUserMedia =
         	navigator.getUserMedia ||
         	navigator.webkitGetUserMedia ||
         	navigator.mozGetUserMedia;
