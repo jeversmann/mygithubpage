@@ -82,9 +82,11 @@ function gotStream(stream) {
 
 function drawLoop( time ) {
     if(meter.volume > 0.2) {
-        document.body.style.backgroundColor="red";
+        if(Math.random > 0.5) {
+            document.body.style.backgroundImage="url('screamwithme2.png')";
+        }
     } else {
-        document.body.style.backgroundColor="white";
+        document.body.style.backgroundImage="url('screamwithme.png')";
     }
 
     // set up the next visual callback
