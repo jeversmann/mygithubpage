@@ -82,8 +82,10 @@ function gotStream(stream) {
 
 function drawLoop( time ) {
     if(meter.volume > 0.2) {
-        if(Math.random > 0.5) {
+        if(Math.random() > 0.5) {
             document.body.style.backgroundImage="url('screamwithme2.png')";
+        } else {
+            document.body.style.backgroundImage="url('screamwithme3.png')";
         }
     } else {
         document.body.style.backgroundImage="url('screamwithme.png')";
