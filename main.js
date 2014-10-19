@@ -28,6 +28,8 @@ var WIDTH=500;
 var HEIGHT=50;
 var rafID = null;
 
+var PICS = document.selectElementByTagName("DIV");
+
 window.onload = function() {
 	
     // monkeypatch Web Audio
@@ -61,6 +63,9 @@ window.onload = function() {
         alert('getUserMedia threw exception :' + e);
     }
 
+    for(i = 0;x<PICS.length; i++){
+		PICS[i].style.position = 'relative';
+	}
 }
 
 
@@ -81,15 +86,20 @@ function gotStream(stream) {
 }
 
 function drawLoop( time ) {
-    if(meter.volume > 0.2) {
-        console.log("sreaming");
+
+	if(meter.volume > 0.3) {
+        PICS[0].style.zIndex = 1;
         if(Math.random() > 0.5) {
-            document.body.style.backgroundImage="url('screamwithme2.png')";
+			PICS[1].style.zIndex = 10;
+			PICS[2].style.zIndex = 1;
         } else {
-            document.body.style.backgroundImage="url('screamwithme3.png')";
+			PICS[1].style.zIndex = 1;
+			PICS[2].style.zIndex = 10;
         }
     } else {
-        document.body.style.backgroundImage="url('screamwithme.png')";
+        PICS[0].style.zIndex = 10;
+		PICS[1].style.zIndex = 1;
+		PICS[2].style.zIndex = 1;
     }
 
     // set up the next visual callback
