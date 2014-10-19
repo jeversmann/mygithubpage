@@ -42,9 +42,9 @@ window.onload = function() {
     try {
         // monkeypatch getUserMedia
         navigator.getUserMedia =
-        	navigator.getUserMedia ||
-        	navigator.webkitGetUserMedia ||
-        	navigator.mozGetUserMedia;
+            navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia;
 
         // ask for an audio input
         navigator.getUserMedia(
@@ -64,8 +64,8 @@ window.onload = function() {
     }
 
     for(i = 0;i<PICS.length; i++){
-		PICS[i].style.position = 'absolute';
-	}
+        PICS[i].style.position = 'absolute';
+    }
 }
 
 
@@ -76,10 +76,11 @@ function didntGetStream() {
 function gotStream(stream) {
     // Create an AudioNode from the stream.
     var mediaStreamSource = audioContext.createMediaStreamSource(stream);
+    PICS[4].style.zIndex = 0;
 
     // Create a new volume meter and connect it.
-	meter = createAudioMeter(audioContext);
-	mediaStreamSource.connect(meter);
+    meter = createAudioMeter(audioContext);
+    mediaStreamSource.connect(meter);
 
     // kick off the visual updating
     drawLoop();
@@ -87,19 +88,19 @@ function gotStream(stream) {
 
 function drawLoop( time ) {
 
-	if(meter.volume > 0.3) {
+    if(meter.volume > 0.3) {
         PICS[0].style.zIndex = 1;
         if(Math.random() > 0.5) {
-			PICS[1].style.zIndex = 10;
-			PICS[2].style.zIndex = 1;
+            PICS[1].style.zIndex = 10;
+            PICS[2].style.zIndex = 1;
         } else {
-			PICS[1].style.zIndex = 1;
-			PICS[2].style.zIndex = 10;
+            PICS[1].style.zIndex = 1;
+            PICS[2].style.zIndex = 10;
         }
     } else {
         PICS[0].style.zIndex = 10;
-		PICS[1].style.zIndex = 1;
-		PICS[2].style.zIndex = 1;
+        PICS[1].style.zIndex = 1;
+        PICS[2].style.zIndex = 1;
     }
 
     // set up the next visual callback
