@@ -60,7 +60,7 @@ window.onload = function() {
             },
         }, gotStream, didntGetStream);
     } catch (e) {
-        alert('getUserMedia threw exception :' + e);
+        alert('Audio recording is not supported in your browser');
     }
 
     for(i = 0;i<PICS.length; i++){
