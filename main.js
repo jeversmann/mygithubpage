@@ -88,7 +88,7 @@ function gotStream(stream) {
 
 function drawLoop( time ) {
 
-    if(meter.volume > 0.3) {
+    if(meter.volume > 0.35) {
         PICS[0].style.zIndex = 1;
         if(Math.random() > 0.5) {
             PICS[1].style.zIndex = 10;
