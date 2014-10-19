@@ -63,8 +63,8 @@ window.onload = function() {
         alert('getUserMedia threw exception :' + e);
     }
 
-    for(i = 0;x<PICS.length; i++){
-		PICS[i].style.position = 'relative';
+    for(i = 0;i<PICS.length; i++){
+		PICS[i].style.position = 'absolute';
 	}
 }
 
