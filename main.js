@@ -29,9 +29,6 @@ var HEIGHT=50;
 var rafID = null;
 
 window.onload = function() {
-
-    // grab our canvas
-	canvasContext = document.getElementById( "meter" ).getContext("2d");
 	
     // monkeypatch Web Audio
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -84,17 +81,11 @@ function gotStream(stream) {
 }
 
 function drawLoop( time ) {
-    // clear the background
-    canvasContext.clearRect(0,0,WIDTH,HEIGHT);
-
-    // check if we're currently clipping
-    if (meter.checkClipping())
-        canvasContext.fillStyle = "red";
-    else
-        canvasContext.fillStyle = "green";
-
-    // draw a bar based on the current volume
-    canvasContext.fillRect(0, 0, meter.volume*WIDTH*1.4, HEIGHT);
+    if(meter.volume > 0.2) {
+        document.body.style.backgroundColor="red";
+    } else {
+        document.body.style.backgroundColor="white";
+    }
 
     // set up the next visual callback
     rafID = window.requestAnimationFrame( drawLoop );
