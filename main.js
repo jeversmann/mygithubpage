@@ -76,7 +76,7 @@ function didntGetStream() {
 function gotStream(stream) {
     // Create an AudioNode from the stream.
     var mediaStreamSource = audioContext.createMediaStreamSource(stream);
-    PICS[4].style.zIndex = 0;
+    PICS[3].style.zIndex = 0;
 
     // Create a new volume meter and connect it.
     meter = createAudioMeter(audioContext);
